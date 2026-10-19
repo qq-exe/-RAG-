@@ -1,0 +1,27 @@
+#[版本说明]docker compose的语法版本3.8是兼容性最好的主流版本
+version: '3.8'
+
+# [服务定义]
+services:
+
+# 服务名称，可自定义
+    rag-api:
+  
+  # [构建上下文]告诉Docker用当前的Dockerfile来构建这个镜像
+      build: . 
+
+      # [端口映射]宿主机端口:容器端口
+      # 把本机的8000端口映射到容器的8000端口，这样你在浏览器访问localhost:8000就能访问到容器里的服务
+      ports:
+        -"8000:8000"
+
+      # [数据卷挂载]把宿主机目录挂载到容器，实现数据持久化
+      volumes:
+        - ./chroma_db:/app/chroma_db
+
+      # [重启策略]unless-stopped表示：除非人为停止，否则容器挂了会自动重启
+      restart: unless-stopped
+
+      # [环境变量]注入环境变量，比如HF_ENDPOINT等
+      environment:
+       - PYTHONNUNBUFFERED=1 # 让Python日志实时输出到Docker日志，方便排查

@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+langchain-huggingface
+langchain-community
+langchain-text-splitters
+chromadb
+pymupdf
+ollama
+pydantic
+sentence-transformers
+python-multipart
+rank_bm25

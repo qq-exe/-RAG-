@@ -1,0 +1,28 @@
+# Python 缓存
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 虚拟环境
+.venv/
+venv/
+env/
+
+# 数据库文件
+chroma_db/
+chroma_db_pdf/
+
+# 临时文件
+tmp_*.pdf
+main3.py
+
+# 你的系统配置文件（绝对不能传上去的）
+.bash_history
+.bash_logout
+.bashrc
+.gitconfig
+.motd_shown
+.profile
+.python_history
+.wget-hsts
+.zshrc
